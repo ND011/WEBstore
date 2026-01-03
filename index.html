@@ -15,8 +15,11 @@
     <!-- Header -->
     <header>
       <div class="container nav-container">
+        <div class="mobile-toggle" id="mobile-toggle">
+          <i class="fas fa-bars"></i>
+        </div>
         <div class="logo">OAK & OCHRE</div>
-        <nav>
+        <nav class="desktop-nav">
           <ul class="nav-links">
             <li><a href="#">Home</a></li>
             <li><a href="#" class="active">Casual Wears</a></li>
@@ -26,12 +29,60 @@
           </ul>
         </nav>
         <div class="header-icons">
-          <i class="fas fa-search"></i>
-          <i class="fas fa-user"></i>
-          <i class="fas fa-shopping-bag"></i>
+          <div class="icon-item" id="search-icon">
+            <i class="fas fa-search"></i>
+          </div>
+          <div class="icon-item"><i class="fas fa-user"></i></div>
+          <div class="icon-item" id="cart-icon">
+            <i class="fas fa-shopping-bag"></i>
+            <span class="cart-count">0</span>
+          </div>
         </div>
       </div>
     </header>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay" id="mobile-menu-overlay">
+      <div class="mobile-menu">
+        <div class="close-btn" id="close-menu">&times;</div>
+        <ul class="mobile-links">
+          <li><a href="#">Home</a></li>
+          <li><a href="#" class="active">Casual Wears</a></li>
+          <li><a href="#">Festive</a></li>
+          <li><a href="#">Accessories</a></li>
+          <li><a href="#">Our Story</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Search Overlay -->
+    <div class="search-overlay" id="search-overlay">
+      <div class="close-btn" id="close-search">&times;</div>
+      <div class="search-container">
+        <input type="text" id="search-input" placeholder="Search products..." />
+        <button id="search-btn">Search</button>
+      </div>
+    </div>
+
+    <!-- Cart Sidebar -->
+    <div class="cart-sidebar-overlay" id="cart-sidebar-overlay"></div>
+    <div class="cart-sidebar" id="cart-sidebar">
+      <div class="cart-header">
+        <h3>Your Bag (<span class="cart-count-header">0</span>)</h3>
+        <div class="close-btn" id="close-cart">&times;</div>
+      </div>
+      <div class="cart-items" id="cart-items">
+        <!-- Items will be injected here -->
+        <div class="empty-cart-msg">Your bag is empty</div>
+      </div>
+      <div class="cart-footer">
+        <div class="cart-total">
+          <span>Total</span>
+          <span id="cart-total-price">$0.00</span>
+        </div>
+        <button class="checkout-btn">Checkout</button>
+      </div>
+    </div>
 
     <!-- Hero Section -->
     <section
@@ -49,7 +100,21 @@
     <section class="products-section container">
       <div class="section-heading">New Arrivals</div>
 
-      <div class="product-grid">
+      <div class="toolbar">
+        <div class="filter-count">
+          <span id="product-count">6</span> Products
+        </div>
+        <div class="sort-options">
+          <label for="sort-select">Sort by:</label>
+          <select id="sort-select">
+            <option value="default">Featured</option>
+            <option value="price-low">Price: Low to High</option>
+            <option value="price-high">Price: High to Low</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="product-grid" id="product-grid">
         <!-- Product 1 -->
         <div class="product-card">
           <div class="product-image">
